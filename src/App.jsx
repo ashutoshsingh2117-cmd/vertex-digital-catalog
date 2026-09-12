@@ -20,6 +20,9 @@ function App() {
   const locked = useRef(false)
   const unlockTimer = useRef(null)
 
+  const touchStartY = useRef(0)
+  const touchStartX = useRef(0)
+
   useEffect(() => {
     const unlock = (duration = 1050) => {
       clearTimeout(unlockTimer.current)
@@ -51,9 +54,7 @@ function App() {
         ) {
           locked.current = true
 
-          workStepRef.current =
-            nextWorkStep
-
+          workStepRef.current = nextWorkStep
           setWorkStep(nextWorkStep)
 
           unlock(1000)
@@ -143,9 +144,7 @@ function App() {
           packagesStepRef.current =
             nextPackagesStep
 
-          setPackagesStep(
-            nextPackagesStep
-          )
+          setPackagesStep(nextPackagesStep)
 
           unlock(1000)
 
@@ -203,6 +202,8 @@ function App() {
         return
       }
 
+      /* MAIN SECTION NAVIGATION */
+
       const next = Math.max(
         0,
         Math.min(
@@ -232,6 +233,8 @@ function App() {
       unlock(1100)
     }
 
+    /* DESKTOP WHEEL */
+
     const wheel = (event) => {
       event.preventDefault()
 
@@ -243,6 +246,65 @@ function App() {
         event.deltaY > 0 ? 1 : -1
       )
     }
+
+    /* MOBILE TOUCH START */
+
+    const touchStart = (event) => {
+      if (
+        !event.touches ||
+        event.touches.length !== 1
+      ) {
+        return
+      }
+
+      touchStartY.current =
+        event.touches[0].clientY
+
+      touchStartX.current =
+        event.touches[0].clientX
+    }
+
+    /* MOBILE TOUCH END */
+
+    const touchEnd = (event) => {
+      if (
+        !event.changedTouches ||
+        event.changedTouches.length !== 1
+      ) {
+        return
+      }
+
+      const endY =
+        event.changedTouches[0].clientY
+
+      const endX =
+        event.changedTouches[0].clientX
+
+      const deltaY =
+        touchStartY.current - endY
+
+      const deltaX =
+        touchStartX.current - endX
+
+      /* Ignore taps and horizontal swipes */
+
+      if (Math.abs(deltaY) < 50) {
+        return
+      }
+
+      if (Math.abs(deltaY) <= Math.abs(deltaX)) {
+        return
+      }
+
+      /* Swipe Up = Next
+         Swipe Down = Previous */
+
+      changeSection(
+        deltaY > 0 ? 1 : -1
+      )
+    }
+
+    /* KEYBOARD */
 
     const keyboard = (event) => {
       if (
@@ -270,6 +332,18 @@ function App() {
     )
 
     window.addEventListener(
+      'touchstart',
+      touchStart,
+      { passive: true }
+    )
+
+    window.addEventListener(
+      'touchend',
+      touchEnd,
+      { passive: true }
+    )
+
+    window.addEventListener(
       'keydown',
       keyboard
     )
@@ -280,6 +354,16 @@ function App() {
       window.removeEventListener(
         'wheel',
         wheel
+      )
+
+      window.removeEventListener(
+        'touchstart',
+        touchStart
+      )
+
+      window.removeEventListener(
+        'touchend',
+        touchEnd
       )
 
       window.removeEventListener(
