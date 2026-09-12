@@ -1,0 +1,645 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+  background: #030303;
+  scrollbar-width: none;
+  overscroll-behavior: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100svh;
+
+  overflow: hidden;
+
+  background: #030303;
+
+  perspective: 1800px;
+  transform-style: preserve-3d;
+}
+
+/* SCENES */
+
+.scene {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
+  will-change:
+    transform,
+    opacity,
+    filter;
+
+  /* IMPORTANT:
+     Inactive scenes must not block clicks
+  */
+  pointer-events: none;
+}
+
+/* COVER */
+
+.scene-cover {
+  z-index: 7;
+
+  transform:
+    translate3d(0, 0, 0)
+    scale(1);
+
+  opacity: 1;
+
+  transition:
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.85s ease,
+    filter 1s ease;
+}
+
+/* ABOUT */
+
+.scene-about {
+  z-index: 6;
+
+  transform:
+    translate3d(0, 0, 180px)
+    scale(0.86);
+
+  opacity: 0;
+
+  filter: blur(12px);
+
+  transition:
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.9s ease,
+    filter 1s ease;
+}
+
+/* CRAFT */
+
+.scene-craft {
+  z-index: 5;
+
+  transform:
+    translate3d(0, 0, 180px)
+    scale(0.86);
+
+  opacity: 0;
+
+  filter: blur(12px);
+
+  transition:
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.9s ease,
+    filter 1s ease;
+}
+
+/* WORK */
+
+.scene-work {
+  z-index: 4;
+
+  transform:
+    translate3d(0, 0, 180px)
+    scale(0.86);
+
+  opacity: 0;
+
+  filter: blur(12px);
+
+  transition:
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.9s ease,
+    filter 1s ease;
+}
+
+/* APPROACH */
+
+.scene-approach {
+  z-index: 3;
+
+  transform:
+    translate3d(0, 0, 180px)
+    scale(0.86);
+
+  opacity: 0;
+
+  filter: blur(12px);
+
+  transition:
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.9s ease,
+    filter 1s ease;
+}
+
+/* PACKAGES */
+
+.scene-packages {
+  z-index: 2;
+
+  transform:
+    translate3d(0, 0, 180px)
+    scale(0.86);
+
+  opacity: 0;
+
+  filter: blur(12px);
+
+  transition:
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.9s ease,
+    filter 1s ease;
+}
+
+/* SEVENTH */
+
+.scene-seventh {
+  z-index: 1;
+
+  transform:
+    translate3d(0, 0, 180px)
+    scale(0.86);
+
+  opacity: 0;
+
+  filter: blur(12px);
+
+  transition:
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 0.9s ease,
+    filter 1s ease;
+}
+
+/* ACTIVE SCENE POINTER EVENTS */
+
+.app.is-cover .scene-cover,
+.app.is-about .scene-about,
+.app.is-craft .scene-craft,
+.app.is-work .scene-work,
+.app.is-approach .scene-approach,
+.app.is-packages .scene-packages,
+.app.is-seventh .scene-seventh {
+  pointer-events: auto;
+}
+
+/* ABOUT ACTIVE */
+
+.app.is-about .scene-cover {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+.app.is-about .scene-about {
+  transform:
+    translate3d(0, 0, 0)
+    scale(1);
+
+  opacity: 1;
+
+  filter: blur(0);
+}
+
+/* CRAFT ACTIVE */
+
+.app.is-craft .scene-about {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+.app.is-craft .scene-craft {
+  transform:
+    translate3d(0, 0, 0)
+    scale(1);
+
+  opacity: 1;
+
+  filter: blur(0);
+}
+
+.app.is-craft .scene-cover {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+/* WORK ACTIVE */
+
+.app.is-work .scene-craft {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+.app.is-work .scene-work {
+  transform:
+    translate3d(0, 0, 0)
+    scale(1);
+
+  opacity: 1;
+
+  filter: blur(0);
+}
+
+.app.is-work .scene-about,
+.app.is-work .scene-cover {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+/* APPROACH ACTIVE */
+
+.app.is-approach .scene-work {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+.app.is-approach .scene-approach {
+  transform:
+    translate3d(0, 0, 0)
+    scale(1);
+
+  opacity: 1;
+
+  filter: blur(0);
+}
+
+.app.is-approach .scene-craft,
+.app.is-approach .scene-about,
+.app.is-approach .scene-cover {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+/* PACKAGES ACTIVE */
+
+.app.is-packages .scene-approach {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+.app.is-packages .scene-packages {
+  transform:
+    translate3d(0, 0, 0)
+    scale(1);
+
+  opacity: 1;
+
+  filter: blur(0);
+}
+
+.app.is-packages .scene-work,
+.app.is-packages .scene-craft,
+.app.is-packages .scene-about,
+.app.is-packages .scene-cover {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+/* SEVENTH ACTIVE */
+
+.app.is-seventh .scene-packages {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+.app.is-seventh .scene-seventh {
+  transform:
+    translate3d(0, 0, 0)
+    scale(1);
+
+  opacity: 1;
+
+  filter: blur(0);
+}
+
+.app.is-seventh .scene-approach,
+.app.is-seventh .scene-work,
+.app.is-seventh .scene-craft,
+.app.is-seventh .scene-about,
+.app.is-seventh .scene-cover {
+  transform:
+    translate3d(0, 0, -280px)
+    scale(1.18)
+    rotateX(2deg);
+
+  opacity: 0;
+
+  filter: blur(10px);
+}
+
+/* CINEMATIC FLASH */
+
+.cinematic-flash {
+  position: absolute;
+  inset: -20%;
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(201, 169, 110, 0.18),
+      rgba(201, 169, 110, 0.035) 30%,
+      transparent 65%
+    );
+
+  opacity: 0;
+
+  transform: scale(0.7);
+
+  transition:
+    opacity 0.35s ease,
+    transform 1.1s
+      cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.app.is-about .cinematic-flash,
+.app.is-craft .cinematic-flash,
+.app.is-work .cinematic-flash,
+.app.is-approach .cinematic-flash,
+.app.is-packages .cinematic-flash,
+.app.is-seventh .cinematic-flash {
+  opacity: 0.55;
+
+  transform: scale(1.35);
+}
+
+/* CINEMATIC VIGNETTE */
+
+.cinematic-vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 11;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 30%,
+      rgba(0, 0, 0, 0.18) 65%,
+      rgba(0, 0, 0, 0.82) 100%
+    );
+
+  opacity: 0.35;
+
+  transition:
+    opacity 1s ease;
+}
+
+.app.is-about .cinematic-vignette,
+.app.is-craft .cinematic-vignette,
+.app.is-work .cinematic-vignette,
+.app.is-approach .cinematic-vignette,
+.app.is-packages .cinematic-vignette,
+.app.is-seventh .cinematic-vignette {
+  opacity: 0.5;
+}
+
+/* CINEMATIC SIDE LIGHT */
+
+.app::before {
+  content: '';
+
+  position: absolute;
+  inset: -30%;
+
+  z-index: 12;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent 38%,
+      rgba(201, 169, 110, 0.04) 47%,
+      rgba(243, 238, 229, 0.1) 50%,
+      rgba(201, 169, 110, 0.04) 53%,
+      transparent 62%
+    );
+
+  transform:
+    translateX(-70%)
+    rotate(7deg);
+
+  opacity: 0;
+
+  transition:
+    transform 1.15s
+      cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.3s ease;
+}
+
+.app.is-about::before,
+.app.is-craft::before,
+.app.is-work::before,
+.app.is-approach::before,
+.app.is-packages::before,
+.app.is-seventh::before {
+  transform:
+    translateX(70%)
+    rotate(7deg);
+
+  opacity: 1;
+}
+
+/* CINEMA BARS */
+
+.app::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  z-index: 13;
+
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 7vh 0 rgba(0, 0, 0, 0),
+    inset 0 -7vh 0 rgba(0, 0, 0, 0);
+
+  transition:
+    box-shadow 0.8s
+      cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.app.is-about::after,
+.app.is-craft::after,
+.app.is-work::after,
+.app.is-approach::after,
+.app.is-packages::after,
+.app.is-seventh::after {
+  box-shadow:
+    inset 0 4vh 0 rgba(0, 0, 0, 0.22),
+    inset 0 -4vh 0 rgba(0, 0, 0, 0.22);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .app {
+    perspective: 1200px;
+  }
+
+  .app.is-about .scene-cover,
+  .app.is-craft .scene-about,
+  .app.is-work .scene-craft,
+  .app.is-approach .scene-work,
+  .app.is-packages .scene-approach,
+  .app.is-seventh .scene-packages {
+    transform:
+      translate3d(0, 0, -180px)
+      scale(1.1)
+      rotateX(1deg);
+  }
+
+  .scene-about,
+  .scene-craft,
+  .scene-work,
+  .scene-approach,
+  .scene-packages,
+  .scene-seventh {
+    transform:
+      translate3d(0, 0, 120px)
+      scale(0.9);
+  }
+
+  .app.is-craft .scene-cover,
+  .app.is-work .scene-about,
+  .app.is-work .scene-cover,
+  .app.is-approach .scene-about,
+  .app.is-approach .scene-craft,
+  .app.is-approach .scene-cover,
+  .app.is-packages .scene-work,
+  .app.is-packages .scene-craft,
+  .app.is-packages .scene-about,
+  .app.is-packages .scene-cover,
+  .app.is-seventh .scene-approach,
+  .app.is-seventh .scene-work,
+  .app.is-seventh .scene-craft,
+  .app.is-seventh .scene-about,
+  .app.is-seventh .scene-cover {
+    transform:
+      translate3d(0, 0, -180px)
+      scale(1.1)
+      rotateX(1deg);
+  }
+
+  .app::after {
+    box-shadow:
+      inset 0 3vh 0 rgba(0, 0, 0, 0),
+      inset 0 -3vh 0 rgba(0, 0, 0, 0);
+  }
+
+  .app.is-about::after,
+  .app.is-craft::after,
+  .app.is-work::after,
+  .app.is-approach::after,
+  .app.is-packages::after,
+  .app.is-seventh::after {
+    box-shadow:
+      inset 0 2.5vh 0 rgba(0, 0, 0, 0.22),
+      inset 0 -2.5vh 0 rgba(0, 0, 0, 0.22);
+  }
+}

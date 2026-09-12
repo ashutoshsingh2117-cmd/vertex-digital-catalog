@@ -1,0 +1,414 @@
+.approach {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 18% 30%,
+      rgba(91, 48, 153, 0.12),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(201, 169, 110, 0.07),
+      transparent 30%
+    ),
+    #060606;
+  color: #f3eee5;
+  isolation: isolate;
+}
+
+/* BACKGROUND */
+
+.approach-glow {
+  position: absolute;
+  width: 32vw;
+  height: 32vw;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.approach-glow-one {
+  top: -18vw;
+  right: -10vw;
+  background: rgba(104, 57, 174, 0.4);
+}
+
+.approach-glow-two {
+  left: -15vw;
+  bottom: -20vw;
+  background: rgba(201, 169, 110, 0.15);
+}
+
+/* SUBTLE GRID */
+
+.approach-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+
+  background-image:
+    linear-gradient(
+      rgba(243, 238, 229, 0.35) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(243, 238, 229, 0.35) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black,
+      transparent 78%
+    );
+}
+
+/* TOP */
+
+.approach-top {
+  position: absolute;
+  top: 30px;
+  left: 4vw;
+  right: 4vw;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: rgba(243, 238, 229, 0.45);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+}
+
+/* CONTENT */
+
+.approach-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1400px, 88vw);
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+
+  gap: 7vw;
+}
+
+/* HEADING */
+
+.approach-heading {
+  position: relative;
+  z-index: 3;
+}
+
+.approach-kicker {
+  display: block;
+  margin-bottom: 20px;
+
+  color: #c9a96e;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+}
+
+.approach-heading h1 {
+  margin: 0;
+
+  font-size: clamp(62px, 8vw, 128px);
+  line-height: 0.82;
+  letter-spacing: -0.065em;
+  font-weight: 700;
+}
+
+.approach-heading h1 span,
+.approach-heading h1 strong {
+  display: block;
+}
+
+.approach-heading h1 span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201, 169, 110, 0.7);
+}
+
+.approach-heading h1 strong {
+  color: #f3eee5;
+  font-weight: 700;
+}
+
+.approach-heading > p {
+  max-width: 390px;
+  margin: 34px 0 0;
+
+  color: rgba(243, 238, 229, 0.55);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* STEPS */
+
+.approach-steps {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+}
+
+.approach-step {
+  position: relative;
+
+  min-height: 120px;
+
+  display: grid;
+  grid-template-columns: 45px 1fr 35px;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 24px 0;
+
+  border-top: 1px solid rgba(243, 238, 229, 0.12);
+
+  transition:
+    padding 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.approach-step:last-child {
+  border-bottom: 1px solid rgba(243, 238, 229, 0.12);
+}
+
+.approach-step:hover {
+  padding-left: 12px;
+  padding-right: 12px;
+  border-color: rgba(201, 169, 110, 0.38);
+}
+
+.approach-step-number {
+  align-self: start;
+
+  padding-top: 4px;
+
+  color: rgba(201, 169, 110, 0.65);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.approach-step-main h2 {
+  margin: 0 0 8px;
+
+  font-size: clamp(25px, 3vw, 42px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.approach-step-main p {
+  max-width: 390px;
+  margin: 0;
+
+  color: rgba(243, 238, 229, 0.68);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.approach-step-arrow {
+  color: #c9a96e;
+  font-size: 20px;
+
+  transition:
+    transform 0.45s ease,
+    color 0.45s ease;
+}
+
+.approach-step:hover .approach-step-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* CENTER LINE */
+
+.approach-center-line {
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  left: 50%;
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(201, 169, 110, 0.13),
+      transparent
+    );
+
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* BOTTOM */
+
+.approach-bottom {
+  position: absolute;
+  left: 4vw;
+  right: 4vw;
+  bottom: 24px;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(243, 238, 229, 0.35);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+}
+
+.approach-bottom i {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #c9a96e;
+}
+
+.approach-bottom-spacer {
+  flex: 1;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .approach-content {
+    width: 90vw;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 5vw;
+  }
+
+  .approach-heading h1 {
+    font-size: clamp(52px, 8vw, 90px);
+  }
+
+  .approach-step {
+    grid-template-columns: 35px 1fr 25px;
+    gap: 14px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .approach-top {
+    top: 20px;
+    left: 22px;
+    right: 22px;
+  }
+
+  .approach-content {
+    width: auto;
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 34px;
+
+    padding:
+      78px
+      40px
+      62px
+      24px;
+  }
+
+  .approach-heading h1 {
+    font-size: clamp(48px, 15vw, 70px);
+  }
+
+  .approach-kicker {
+    margin-bottom: 16px;
+    font-size: 8px;
+  }
+
+  .approach-heading > p {
+    max-width: 300px;
+    margin-top: 24px;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .approach-steps {
+    width: 100%;
+  }
+
+  .approach-step {
+    min-height: 92px;
+
+    grid-template-columns: 30px 1fr 20px;
+
+    gap: 10px;
+
+    padding: 17px 0;
+  }
+
+  .approach-step:hover {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .approach-step-number {
+    font-size: 8px;
+  }
+
+  .approach-step-main h2 {
+    margin-bottom: 6px;
+    font-size: 25px;
+  }
+
+  .approach-step-main p {
+    max-width: 270px;
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+  .approach-step-arrow {
+    font-size: 16px;
+  }
+
+  .approach-center-line {
+    display: none;
+  }
+
+  .approach-bottom {
+    left: 22px;
+    right: 22px;
+    bottom: 17px;
+
+    font-size: 6px;
+    gap: 8px;
+  }
+
+  .approach-bottom-spacer {
+    min-width: 8px;
+  }
+
+  .approach-grid {
+    background-size: 55px 55px;
+  }
+}
