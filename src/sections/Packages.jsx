@@ -157,8 +157,7 @@ function Packages({ activeStep }) {
             </span>
 
             <h2>
-              ADD-ON
-              <span>SERVICES.</span>
+              SERVICES.
             </h2>
 
             <div className="addons-list">
