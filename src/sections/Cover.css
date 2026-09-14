@@ -237,12 +237,14 @@
   animation: vertexReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards;
 }
 
-/* STUDIO — ORIGINAL CLEAN RENDERING */
+/* STUDIO */
 
 .cover-word-outline {
   color: rgba(201, 169, 110, 0.18);
+  -webkit-text-fill-color: rgba(201, 169, 110, 0.18);
   -webkit-text-stroke: 1px rgba(201, 169, 110, 0.58);
-  text-shadow: 0 0 32px rgba(201, 169, 110, 0.035);
+  text-shadow:
+    0 0 32px rgba(201, 169, 110, 0.035);
   transform: translateY(75px) scale(1.12);
   animation: studioReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
 }
@@ -430,7 +432,7 @@
   }
 
   65% {
-    opacity: 1;
+    opacity: 0.8;
     filter: blur(0);
   }
 
@@ -502,12 +504,12 @@
 @keyframes cornerReveal {
   from {
     opacity: 0;
-    transform: scale(0.6);
+    scale: 0.6;
   }
 
   to {
     opacity: 1;
-    transform: scale(1);
+    scale: 1;
   }
 }
 
