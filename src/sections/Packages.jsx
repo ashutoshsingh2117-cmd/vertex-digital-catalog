@@ -62,7 +62,6 @@ function Packages({ activeStep }) {
     <section className="packages">
       <div className="packages-glow packages-glow-one" />
       <div className="packages-glow packages-glow-two" />
-      <div className="packages-grid" />
 
       <div className="packages-top">
         <span>OUR PACKAGES</span>
