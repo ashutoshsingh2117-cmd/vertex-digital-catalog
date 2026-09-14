@@ -189,35 +189,95 @@
 }
 
 @media (max-width: 600px) {
-  .about-heading-wrap h2 {
-    font-size: clamp(3.1rem, 15vw, 5rem);
+  .about-inner {
+    padding: 4vh 0 2vh;
   }
 
-  .about-heading-wrap h2 span {
-    -webkit-text-stroke: 0.8px rgba(201, 169, 110, 0.68);
+  .about-top {
+    padding-bottom: 14px;
+  }
+
+  .about-label,
+  .about-index {
+    font-size: 8px;
+    letter-spacing: 0.22em;
   }
 
   .about-content {
-    padding: 6vh 0;
-    gap: 50px;
+    padding: 3vh 0 2vh;
+    gap: 24px;
+  }
+
+  .about-heading-wrap h2 {
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+    line-height: 0.86;
+  }
+
+  .about-heading-wrap h2 span {
+    margin-top: 7px;
+
+    /* Android-safe outline */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0;
+    text-shadow:
+      -0.8px -0.8px 0 rgba(201, 169, 110, 0.68),
+       0    -0.8px 0 rgba(201, 169, 110, 0.68),
+       0.8px -0.8px 0 rgba(201, 169, 110, 0.68),
+      -0.8px  0    0 rgba(201, 169, 110, 0.68),
+       0.8px  0    0 rgba(201, 169, 110, 0.68),
+      -0.8px  0.8px 0 rgba(201, 169, 110, 0.68),
+       0    0.8px 0 rgba(201, 169, 110, 0.68),
+       0.8px  0.8px 0 rgba(201, 169, 110, 0.68);
+  }
+
+  .about-mini-title {
+    margin-bottom: 18px;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+  }
+
+  .about-description {
+    max-width: none;
   }
 
   .about-intro {
-    font-size: 1rem;
+    margin-bottom: 24px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .about-points {
+    gap: 12px;
   }
 
   .about-point {
-    gap: 14px;
+    grid-template-columns: 30px 1fr;
+    gap: 12px;
+    padding-top: 12px;
+  }
+
+  .point-number {
+    font-size: 9px;
+    padding-top: 3px;
+  }
+
+  .about-point h3 {
+    margin-bottom: 5px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
   }
 
   .about-point p {
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 1.45;
     color: #ffffff;
     font-weight: 400;
   }
 
   .about-bottom {
-    font-size: 7px;
-    letter-spacing: 0.18em;
+    padding-top: 12px;
+    font-size: 6px;
+    letter-spacing: 0.16em;
   }
 }
