@@ -26,7 +26,6 @@ function Approach() {
     <section className="approach">
       <div className="approach-glow approach-glow-one" />
       <div className="approach-glow approach-glow-two" />
-      <div className="approach-grid" />
 
       <div className="approach-top">
         <span>THE APPROACH</span>
@@ -74,8 +73,6 @@ function Approach() {
           ))}
         </div>
       </div>
-
-      <div className="approach-center-line" />
 
       <div className="approach-bottom">
         <span>STRATEGY</span>
