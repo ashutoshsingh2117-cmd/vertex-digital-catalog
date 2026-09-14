@@ -11,7 +11,6 @@ function Seventh() {
     <section className="seventh">
       <div className="seventh-glow seventh-glow-one" />
       <div className="seventh-glow seventh-glow-two" />
-      <div className="seventh-grid" />
 
       <div className="seventh-top">
         <span>THE NEXT MOVE</span>
@@ -118,8 +117,6 @@ function Seventh() {
           </div>
         </div>
       </div>
-
-      <div className="seventh-center-line" />
 
       <div className="seventh-bottom">
         <span>DESIGN</span>
