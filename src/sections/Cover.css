@@ -237,7 +237,7 @@
   animation: vertexReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards;
 }
 
-/* STUDIO — CLEAN CHAMPAGNE FILL + OUTLINE */
+/* STUDIO */
 
 .cover-word-outline {
   color: rgba(201, 169, 110, 0.18);
@@ -247,8 +247,6 @@
     0 0 32px rgba(201, 169, 110, 0.035);
   transform: translateY(75px) scale(1.12);
   animation: studioReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1.65s forwards;
-  -webkit-font-smoothing: antialiased;
-  backface-visibility: hidden;
 }
 
 /* DIVIDER */
@@ -503,8 +501,6 @@
   }
 }
 
-/* CORNER REVEAL */
-
 @keyframes cornerReveal {
   from {
     opacity: 0;
@@ -596,6 +592,27 @@
 
   .cover-title {
     font-size: clamp(55px, 18vw, 105px);
+  }
+
+  /*
+    MOBILE STUDIO FIX
+
+    Chrome mobile can render -webkit-text-stroke
+    differently from desktop and produce internal
+    rectangular artifacts. Use a shadow-based outline
+    instead while keeping the same champagne appearance.
+  */
+
+  .cover-word-outline {
+    color: rgba(201, 169, 110, 0.20);
+    -webkit-text-fill-color: rgba(201, 169, 110, 0.20);
+    -webkit-text-stroke: 0;
+    text-shadow:
+      -1px 0 0 rgba(201, 169, 110, 0.58),
+      1px 0 0 rgba(201, 169, 110, 0.58),
+      0 -1px 0 rgba(201, 169, 110, 0.58),
+      0 1px 0 rgba(201, 169, 110, 0.58),
+      0 0 32px rgba(201, 169, 110, 0.035);
   }
 
   .cover-divider {
